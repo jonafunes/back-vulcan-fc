@@ -2,8 +2,8 @@ const supabase = require("../supabase");
 
 // Crear pareja
 exports.createTeam = async (req, res) => {
-  const { player1, player2 } = req.body;
-  const { data, error } = await supabase.from("teams").insert({ player1, player2 });
+  const { player1_id, player2_id } = req.body;
+  const { data, error } = await supabase.from("teams").insert({ player1_id, player2_id });
   if (error) return res.status(400).json({ error: error.message });
   res.status(201).json({ message: "Team creado" });
 };
@@ -26,8 +26,8 @@ exports.getTeamById = async (req, res) => {
 // Actualizar pareja
 exports.updateTeam = async (req, res) => {
   const { id } = req.params;
-  const { player1, player2 } = req.body;
-  const { data, error } = await supabase.from("teams").update({ player1, player2 }).eq("id", id);
+  const { player1_id, player2_id } = req.body;
+  const { data, error } = await supabase.from("teams").update({ player1_id, player2_id }).eq("id", id);
   if (error) return res.status(400).json({ error: error.message });
   res.status(201).json({ message: "Team actualizado" });
 };

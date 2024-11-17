@@ -17,9 +17,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 const corsOptions = {
-    origin: ["http://localhost:3000"], // O lista de dominios permitidos
+    origin: ["http://localhost:3000", "https://jonafunes.github.io/vulcan-sorteador"],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: ["Content-Type"],
 };
 
 app.use(cors(corsOptions));
