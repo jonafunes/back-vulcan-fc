@@ -1,0 +1,329 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Sports API",
+    "description": "API para gestionar jugadores, equipos, partidos, torneos, estadísticas y clubes."
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/players": {
+      "get": {
+        "tags": ["Players"],
+        "summary": "Obtener todos los jugadores",
+        "responses": {
+          "200": {
+            "description": "Lista de jugadores"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Players"],
+        "summary": "Crear un nuevo jugador",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Jugador creado"
+          }
+        }
+      }
+    },
+    "/players/{id}": {
+      "get": {
+        "tags": ["Players"],
+        "summary": "Obtener un jugador por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Jugador encontrado"
+          },
+          "404": {
+            "description": "Jugador no encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Players"],
+        "summary": "Actualizar un jugador por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Jugador actualizado"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Players"],
+        "summary": "Eliminar un jugador por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Jugador eliminado"
+          }
+        }
+      }
+    },
+    "/teams": {
+      "get": {
+        "tags": ["Teams"],
+        "summary": "Obtener todos los equipos",
+        "responses": {
+          "200": {
+            "description": "Lista de equipos"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Teams"],
+        "summary": "Crear un nuevo equipo",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "player1": { "type": "integer" },
+                "player2": { "type": "integer" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Equipo creado"
+          }
+        }
+      }
+    },
+    "/teams/{id}": {
+      "get": {
+        "tags": ["Teams"],
+        "summary": "Obtener un equipo por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Equipo encontrado"
+          },
+          "404": {
+            "description": "Equipo no encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Teams"],
+        "summary": "Actualizar un equipo por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "player1": { "type": "integer" },
+                "player2": { "type": "integer" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Equipo actualizado"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Teams"],
+        "summary": "Eliminar un equipo por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Equipo eliminado"
+          }
+        }
+      }
+    },
+    "/api/clubs": {
+      "get": {
+        "tags": ["Clubs"],
+        "summary": "Obtener todos los clubes",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "type": "string",
+            "description": "Filtrar clubes por nombre (opcional)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de clubes"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Clubs"],
+        "summary": "Crear un nuevo club",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Club creado"
+          }
+        }
+      }
+    },
+    "/api/clubs/{id}": {
+      "get": {
+        "tags": ["Clubs"],
+        "summary": "Obtener un club por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Club encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Clubs"],
+        "summary": "Actualizar un club por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Club actualizado"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Clubs"],
+        "summary": "Eliminar un club por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Club eliminado"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Club": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" }
+      }
+    }
+  }
+}
