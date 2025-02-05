@@ -27,15 +27,16 @@ app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
 
 // Swagger middleware
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+/* app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument)); */
 
 // Rutas de la API
-app.use("/players", playersRoutes);
-app.use("/teams", teamsRoutes);
 app.use("/matches", matchesRoutes);
+app.use("/players", playersRoutes);
+
+/* app.use("/teams", teamsRoutes);
 app.use("/tournaments", tournamentsRoutes);
 app.use("/stats", statsRoutes);
-app.use("/club", clubsRoutes);
+app.use("/club", clubsRoutes); */
 
 // Iniciar el servidor
 app.listen(PORT, () => {

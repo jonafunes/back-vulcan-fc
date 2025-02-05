@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0.0",
     "title": "Sports API",
-    "description": "API para gestionar jugadores, equipos, partidos, torneos, estadísticas y clubes."
+    "description": "API para partidos entre amigos y llevar estadisticas"
   },
   "host": "localhost:3000",
   "basePath": "/",
